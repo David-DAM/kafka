@@ -1,5 +1,7 @@
-package com.david.kafka;
+package com.david.kafka.controller;
 
+import com.david.kafka.service.Producer;
+import com.david.kafka.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,9 +16,9 @@ public class Controller {
     private Producer producer;
 
     @PostMapping("/publish")
-    public ResponseEntity<String> sendMessage(@RequestBody String message){
+    public ResponseEntity<String> sendMessage(@RequestBody User user){
 
-        producer.sendMessage(message);
+        producer.sendMessage(user);
 
         return new ResponseEntity<String>("Created", HttpStatus.CREATED);
     }
