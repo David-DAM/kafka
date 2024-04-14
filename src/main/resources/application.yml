@@ -1,1 +1,12 @@
-
+app:
+  topic: test_topic
+  topic2: test_topic_2
+  group:
+    id: group_id
+  bootstrap:
+    servers:
+      config: localhost:9092
+  schema:
+    registry:
+      url:
+        config: http://localhost:8081
