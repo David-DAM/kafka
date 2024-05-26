@@ -1,6 +1,17 @@
 version: "3"
 
 services:
+  kafka:
+    build: ./
+    ports:
+      - "8080:8080"
+    restart: always
+    depends_on:
+      - zookeeper
+      - broker
+      - schema-registry
+      - control-center
+
   zookeeper:
     image: confluentinc/cp-zookeeper:5.4.0
     hostname: zookeeper
