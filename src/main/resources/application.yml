@@ -5,8 +5,8 @@ app:
     id: group_id
   bootstrap:
     servers:
-      config: localhost:9092
+      config: ${BOOTSTRAP_SERVER_CONFIG}
   schema:
     registry:
       url:
-        config: http://localhost:8081
+        config: ${SCHEMA_REGISTRY_URL}
