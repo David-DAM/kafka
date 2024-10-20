@@ -5,9 +5,10 @@ services:
     build: ./
     ports:
       - "8080:8080"
-    restart: always
     container_name: app
     hostname: app
+    networks:
+      - kafka
     depends_on:
       - zookeeper
       - broker
@@ -16,11 +17,14 @@ services:
     environment:
       BOOTSTRAP_SERVER_CONFIG: "broker:9092"
       SCHEMA_REGISTRY_URL: "http://schema-registry:8081"
+      GROUP_ID: "group_id"
 
   zookeeper:
     image: confluentinc/cp-zookeeper:5.4.0
     hostname: zookeeper
     container_name: zookeeper
+    networks:
+      - kafka
     ports:
       - "2181:2181"
     environment:
@@ -31,6 +35,8 @@ services:
     image: confluentinc/cp-server:5.4.0
     hostname: broker
     container_name: broker
+    networks:
+      - kafka
     depends_on:
       - zookeeper
     ports:
@@ -64,6 +70,8 @@ services:
     image: confluentinc/cp-schema-registry:5.4.0
     hostname: schema-registry
     container_name: schema-registry
+    networks:
+      - kafka
     depends_on:
       - zookeeper
       - broker
@@ -77,6 +85,8 @@ services:
     image: confluentinc/cp-enterprise-control-center:5.4.0
     hostname: control-center
     container_name: control-center
+    networks:
+      - kafka
     depends_on:
       - zookeeper
       - broker
@@ -84,7 +94,7 @@ services:
     ports:
       - "9021:9021"
     environment:
-      CONTROL_CENTER_BOOTSTRAP_SERVERS: 'broker:29092'
+      CONTROL_CENTER_BOOTSTRAP_SERVERS: 'broker:9092'
       CONTROL_CENTER_ZOOKEEPER_CONNECT: 'zookeeper:2181'
       CONTROL_CENTER_SCHEMA_REGISTRY_URL: "http://schema-registry:8081"
       CONTROL_CENTER_REPLICATION_FACTOR: 1
@@ -92,3 +102,8 @@ services:
       CONTROL_CENTER_MONITORING_INTERCEPTOR_TOPIC_PARTITIONS: 1
       CONFLUENT_METRICS_TOPIC_REPLICATION: 1
       PORT: 9021
+
+
+networks:
+  kafka:
+    driver: bridge

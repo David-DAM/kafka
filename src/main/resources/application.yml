@@ -2,7 +2,7 @@ app:
   topic: test_topic
   topic2: test_topic_2
   group:
-    id: group_id
+    id: ${GROUP_ID}
   bootstrap:
     servers:
       config: ${BOOTSTRAP_SERVER_CONFIG}
