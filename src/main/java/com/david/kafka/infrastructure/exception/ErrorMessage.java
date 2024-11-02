@@ -1,8 +1,4 @@
-package com.david.kafka.exception;
-
-
-
-import java.util.Map;
+package com.david.kafka.infrastructure.exception;
 
 
 public class ErrorMessage {
@@ -10,7 +6,7 @@ public class ErrorMessage {
     private String message;
     private String path;
 
-    public ErrorMessage(Exception exception, String path){
+    public ErrorMessage(Exception exception, String path) {
         this.exception = exception.getClass().getSimpleName();
         this.message = exception.getMessage();
         this.path = path;

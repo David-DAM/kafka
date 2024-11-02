@@ -1,4 +1,4 @@
-package com.david.kafka.exception;
+package com.david.kafka.infrastructure.exception;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
@@ -15,7 +15,7 @@ public class ApiExceptionHandler {
             RuntimeException.class,
     })
     @ResponseBody
-    public ErrorMessage internalServerError(HttpServletRequest request, Exception exception){
+    public ErrorMessage internalServerError(HttpServletRequest request, Exception exception) {
         return new ErrorMessage(exception, request.getRequestURI());
     }
 

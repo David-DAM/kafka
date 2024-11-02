@@ -1,4 +1,4 @@
-package com.david.kafka.config;
+package com.david.kafka.infrastructure.kafka.config;
 
 public class Constant {
 
