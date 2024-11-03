@@ -2,11 +2,11 @@ app:
   topic: test_topic
   topic2: test_topic_2
   group:
-    id: ${GROUP_ID}
+    id: group_id
   bootstrap:
     servers:
-      config: ${BOOTSTRAP_SERVER_CONFIG}
+      config: localhost:9092
   schema:
     registry:
       url:
-        config: ${SCHEMA_REGISTRY_URL}
+        config: http://localhost:8081

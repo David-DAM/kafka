@@ -1,4 +1,4 @@
-package com.david.kafka.application;
+package com.david.kafka.infrastructure.kafka.util;
 
 import org.apache.avro.Schema;
 import org.apache.avro.generic.GenericRecord;

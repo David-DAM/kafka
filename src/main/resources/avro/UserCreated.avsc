@@ -1,0 +1,23 @@
+{
+  "namespace": "com.david.kafka.infrastructure.events",
+  "type": "record",
+  "name": "UserCreated",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "lastname",
+      "type": "string"
+    },
+    {
+      "name": "age",
+      "type": "int"
+    },
+    {
+      "name": "height",
+      "type": "double"
+    }
+  ]
+}

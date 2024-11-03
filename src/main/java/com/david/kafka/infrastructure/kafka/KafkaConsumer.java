@@ -1,11 +1,10 @@
 package com.david.kafka.infrastructure.kafka;
 
-import com.david.kafka.application.MessagingUtils;
+import com.david.kafka.infrastructure.kafka.util.MessagingUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.avro.generic.GenericRecord;
 import org.apache.avro.specific.SpecificRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.DltHandler;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.annotation.RetryableTopic;
@@ -19,10 +18,10 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Component
 public class KafkaConsumer implements Consumer<Message<GenericRecord>> {
 
-    private static final Logger log = LoggerFactory.getLogger(KafkaConsumer.class);
     private final Map<String, EventSpecificConsumer<SpecificRecord>> specificConsumersMap;
     private final MessagingUtils messagingUtils;
 

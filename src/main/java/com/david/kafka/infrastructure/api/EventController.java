@@ -1,7 +1,7 @@
 package com.david.kafka.infrastructure.api;
 
-import com.david.kafka.application.kafka.KafkaProducer;
-import com.david.kafka.domain.User;
+import com.david.kafka.application.services.KafkaProducer;
+import com.david.kafka.infrastructure.events.UserCreated;
 import com.david.kafka.infrastructure.kafka.config.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,7 +17,7 @@ public class EventController {
     private KafkaProducer kafkaProducer;
 
     @PostMapping("/publish/user")
-    public ResponseEntity<String> sendMessage(@RequestBody User user) {
+    public ResponseEntity<String> sendMessage(@RequestBody UserCreated user) {
 
         kafkaProducer.sendMessage(Constant.TOPIC, user);
 

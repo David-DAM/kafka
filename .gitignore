@@ -33,3 +33,4 @@ build/
 
 ### VS Code ###
 .vscode/
+/src/main/java/com/david/kafka/infrastructure/events/

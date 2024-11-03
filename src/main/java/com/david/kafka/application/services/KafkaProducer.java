@@ -1,4 +1,4 @@
-package com.david.kafka.application.kafka;
+package com.david.kafka.application.services;
 
 import org.apache.avro.generic.GenericRecord;
 import org.slf4j.Logger;
