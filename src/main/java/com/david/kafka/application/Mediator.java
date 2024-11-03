@@ -1,5 +1,6 @@
 package com.david.kafka.application;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.ParameterizedType;
@@ -8,6 +9,7 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Component
 public class Mediator {
 
@@ -27,7 +29,7 @@ public class Mediator {
         if (handler != null) {
             handler.handle(request);
         } else {
-            System.out.println("No handler registered for request type: " + request.getClass());
+            log.error("No handler registered for request type: {}", request.getClass());
         }
     }
 }
