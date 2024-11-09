@@ -11,11 +11,11 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Component
-public class Mediator {
+public class KafkaMediator {
 
     Map<String, Handler> handlersMap;
 
-    public Mediator(List<Handler> handlerList) {
+    public KafkaMediator(List<Handler> handlerList) {
         handlersMap = handlerList.stream().collect(Collectors.toMap(
                 x -> ((ParameterizedType) x.getClass().getGenericInterfaces()[0]).getActualTypeArguments()[0].getTypeName(),
                 Function.identity()

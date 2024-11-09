@@ -1,6 +1,6 @@
 package com.david.kafka.infrastructure.kafka.specific;
 
-import com.david.kafka.application.Mediator;
+import com.david.kafka.application.KafkaMediator;
 import com.david.kafka.application.userCreated.UserCreatedCmd;
 import com.david.kafka.application.userCreated.UserCreatedRequest;
 import com.david.kafka.infrastructure.events.UserCreated;
@@ -16,13 +16,13 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class UserCreatedSpecificConsumer implements EventSpecificConsumer<UserCreated> {
 
-    private final Mediator mediator;
+    private final KafkaMediator kafkaMediator;
     private final EventMapper eventMapper;
 
     @Override
     public void accept(Message<UserCreated> genericRecordMessage) {
         log.info("Received UserCreatedSpecificConsumer: {}", genericRecordMessage.getPayload());
         UserCreatedCmd userCreatedCmd = eventMapper.map(genericRecordMessage.getPayload());
-        mediator.mediate(new UserCreatedRequest(userCreatedCmd));
+        kafkaMediator.mediate(new UserCreatedRequest(userCreatedCmd));
     }
 }
