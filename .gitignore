@@ -33,4 +33,4 @@ build/
 
 ### VS Code ###
 .vscode/
-/src/main/java/com/david/kafka/infrastructure/events/
+/src/main/java/com/davinchicoder/spring_boot_async_template_community/infrastructure/events/

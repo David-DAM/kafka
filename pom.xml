@@ -8,11 +8,42 @@
         <version>3.2.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.david</groupId>
-    <artifactId>kafka</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>kafka</name>
-    <description>Demo project for Spring Boot</description>
+    <groupId>com.davinchicoder</groupId>
+    <artifactId>spring-boot-async-template-community</artifactId>
+    <version>1.0.0</version>
+    <name>spring-boot-async-template-community</name>
+    <description>A starter template for building Spring Boot Async applications with essential configurations.
+    </description>
+    <licenses>
+        <license>
+            <name>MIT License - Davinchi Coder</name>
+            <url>https://github.com/David-DAM/spring-boot-async-template-community/blob/master/LICENSE</url>
+            <distribution>manual</distribution>
+        </license>
+        <license>
+            <name>Commercial License - Davinchi Coder</name>
+            <url>https://github.com/David-DAM/spring-boot-async-template-community/blob/master/LICENSE.txt</url>
+            <distribution>manual</distribution>
+            <comments>This template is subject to a commercial license. Redistribution or public use is not allowed
+                without authorization.
+            </comments>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>davinchicoder</id>
+            <name>David Jiménez Villajos</name>
+            <email>davinchicoderbusiness@gmail.com</email>
+            <url>https://davinchicoder.dev</url>
+            <roles>
+                <role>author</role>
+                <role>Lead Developer</role>
+            </roles>
+            <organization>DavinchiCoder</organization>
+            <organizationUrl>https://davinchicoder.dev</organizationUrl>
+        </developer>
+    </developers>
     <properties>
         <java.version>17</java.version>
     </properties>

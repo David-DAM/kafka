@@ -1,5 +1,5 @@
 {
-  "namespace": "com.david.kafka.infrastructure.events",
+  "namespace": "com.davinchicoder.spring_boot_async_template_community.infrastructure.events",
   "type": "record",
   "name": "ProductCreated",
   "fields": [

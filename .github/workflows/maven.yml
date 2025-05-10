@@ -49,6 +49,9 @@ jobs:
           CONFLUENT_METRICS_REPORTER_TOPIC_REPLICAS: 1
           CONFLUENT_METRICS_ENABLE: "true"
           CONFLUENT_SUPPORT_CUSTOMER_ID: "anonymous"
+        depends_on:
+          zookeeper:
+            condition: service_healthy
 
       schema-registry:
         image: confluentinc/cp-schema-registry:5.4.0
